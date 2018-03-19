@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" >
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>hello,琳琳</title>
+
+<style type="text/css">
+@font-face {
+	font-family: digit;
+	src: url('digital-7_mono.ttf') format("truetype");
+}
+</style>
+<style>
+a{
+text-decoration: none;
+font-weight:bold;
+font-size:20px
+}
+</style>
+
+<link href="css/default.css" type="text/css" rel="stylesheet">
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/garden.js"></script>
+<script type="text/javascript" src="js/functions.js"></script>
+
+</head>
+
+<body>
+
+<div id="mainDiv">
+	<div id="content">
+		<div id="code">
+			<span class="comments">/**</span><br />
+			<span class="space"/><span class="comments">*从见面那天算起</span><br />
+			<span class="space"/><span class="comments">*2018—03-15.</span><br />
+			<span class="space"/><span class="comments">*/</span><br />
+			这是一个定时器，记录我们认识的时光<br />
+			Girl name = <span class="keyword">崔琳琳</span><br />
+			<span class="comments">//突然~~~也不知道说些什么，哈哈 </span><br />			
+			<span class="comments">//看你对我们行业好像很感兴趣，就简单做了个小网页。写了些自己想说的。</span><br />
+			<span class="comments">//第一次见面印象：可爱，语速超快。</span><br />
+			<span class="comments">//然后很爱笑。</span><br />
+			<span class="keyword">我</span> 很开心 <span class="keyword">认识你</span>;<br />
+			<span class="placeholder"/><span class="comments">//王菲儿的室友，虽然以前追过她，但是也不是很了解</span><br />
+			<span class="placeholder"/><span class="comments">//话说这周有空一起看电影吗</span><br />
+			<span class="placeholder"/>有的话，约起来啊。水形物语你看了么。<br />
+			<span class="placeholder"/>//这张网页我可能会定期加些我想说的。<br />
+			<span class="comments">//所以你要关注哦！</span><br />
+		</div>
+		<div id="loveHeart">
+			<canvas id="garden"></canvas>
+			<div id="words">
+				<div id="messages">
+					这是我们认识的时光。
+					<div id="elapseClock"></div>
+				</div>
+				<div id="loveu">
+					愿你永远开心。<br/>
+					<div class="signature">- 兵</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+var offsetX = $("#loveHeart").width() / 2;
+var offsetY = $("#loveHeart").height() / 2 - 55;
+var together = new Date();
+together.setFullYear(2018, 2, 15);
+together.setHours(18);
+together.setMinutes(0);
+together.setSeconds(0);
+together.setMilliseconds(0);
+
+if (!document.createElement('canvas').getContext) {
+	var msg = document.createElement("div");
+	msg.id = "errorMsg";
+	msg.innerHTML = "Your browser doesn't support HTML5!<br/>Recommend use Chrome 14+/IE 9+/Firefox 7+/Safari 4+"; 
+	document.body.appendChild(msg);
+	$("#code").css("display", "none")
+	$("#copyright").css("position", "absolute");
+	$("#copyright").css("bottom", "10px");
+	document.execCommand("stop");
+} else {
+	setTimeout(function () {
+		startHeartAnimation();
+	}, 5000);
+
+	timeElapse(together);
+	setInterval(function () {
+		timeElapse(together);
+	}, 500);
+
+	adjustCodePosition();
+	$("#code").typewriter();
+}
+</script>
+
+</body>
+</html>
